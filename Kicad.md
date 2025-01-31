@@ -3,7 +3,7 @@ Vidéos de GEII
 * [1-2](https://www.youtube.com/watch?v=Aj7RpaX0Y7o)
 * [3](https://www.bing.com/videos/riverview/relatedvideo?&q=geii.eu+kicad+youtube&&mid=EA771055B95DAE354F34EA771055B95DAE354F34&mmscn=mtsc&aps=315&FORM=VRDGAR)
 * [5](https://www.bing.com/videos/riverview/relatedvideo?&q=geii.eu+kicad+youtube&&mid=69D96ADB77E8308BCC9569D96ADB77E8308BCC95&mmscn=mtsc&aps=47&FORM=VRDGAR)
-* [6](https://www.bing.com/videos/riverview/relatedvideo?&q=geii.eu+kicad+youtube&&mid=22D11B18F7154DAF14B622D11B18F7154DAF14B6&mmscn=mtsc&aps=121&FORM=VRDGAR)
+* [6 Associer les empreintes physiques aux symboles du schéma](https://www.bing.com/videos/riverview/relatedvideo?&q=geii.eu+kicad+youtube&&mid=22D11B18F7154DAF14B622D11B18F7154DAF14B6&mmscn=mtsc&aps=121&FORM=VRDGAR)
 * [7](https://www.bing.com/videos/riverview/relatedvideo?&q=geii.eu+kicad+youtube&&mid=1195C2CC49CD49075A331195C2CC49CD49075A33&&FORM=VRDGAR)
 * [8a](https://www.bing.com/videos/riverview/relatedvideo?&q=geii.eu+kicad+youtube&&mid=7640F37F4F1F1B42771D7640F37F4F1F1B42771D&mmscn=mtsc&aps=842&FORM=VRDGAR)
 * [8b](https://www.bing.com/videos/riverview/relatedvideo?&q=geii.eu+kicad+youtube&&mid=5DD98D0E1CEADBC122355DD98D0E1CEADBC12235&&FORM=VRDGAR)
