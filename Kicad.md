@@ -17,5 +17,5 @@ Vidéos de GEII
 * [15 Générer et visualiser les fichiers de fabrication](https://www.bing.com/videos/riverview/relatedvideo?&q=geii.eu+kicad+youtube&&mid=E1B24F265E2E96AAEF5AE1B24F265E2E96AAEF5A&mmscn=mtsc&aps=491&FORM=VRDGAR)
 
 
-* https://geii.educlibre.net/er_cao/fichiers/tutoriels/TUTO%20CAO%20KiCad.pdf
-* https://geii.educlibre.net/er_cao/fichiers/td1/TD1%20-%20Fiche%20m%C3%A9thodologique%20-%20KiCad%205.pdf
+* [TUTO CAO KiCad (pdf)](https://geii.educlibre.net/er_cao/fichiers/tutoriels/TUTO%20CAO%20KiCad.pdf)
+* [Fiche méthodologique KiCad](https://geii.educlibre.net/er_cao/fichiers/td1/TD1%20-%20Fiche%20m%C3%A9thodologique%20-%20KiCad%205.pdf)
