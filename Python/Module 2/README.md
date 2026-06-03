@@ -33,7 +33,35 @@ Concepts clés :
 - **task** : coroutine lancée en parallèle
 - **event loop** : moteur qui exécute les tâches
 
-## Exemple 1 — Clignoter une LED sans bloquer
+## Exemple 1 — Combiner pluseurs boucles de façon non bloquante
+
+```
+import uasyncio as asyncio
+
+async def blink():
+    # Ici on affiche alternativement 0 ou 1 toutes les demi-secondes
+    while True:
+        print("0")
+        await asyncio.sleep(0.5)
+        print("1")
+        await asyncio.sleep(0.5)
+
+async def main():
+    # on lance la première boucle, tout en lançant une autre boucle plus rapide
+    # puis on arrête l'application au bout de 5 secondes
+
+    asyncio.create_task(blink())
+    for i in range(10):
+        print("aaa")
+        await asyncio.sleep(0.1)
+
+    await asyncio.sleep(5)   # laisse tourner 5s
+
+asyncio.run(main())
+```
+
+
+## Exemple 2 — Clignoter une LED sans bloquer
 ```
 import uasyncio as asyncio
 from machine import Pin
@@ -52,6 +80,9 @@ async def main():
     # On lance la tâche de clignottement qui peut continuer
     # sans gêner le reste du programme
     asyncio.create_task(blink())
+    for i in range(10):
+        print("aaa")
+        await asyncio.sleep(0.1)
     await asyncio.sleep(10)   # laisse tourner 10s
 
 asyncio.run(main())
@@ -60,7 +91,7 @@ asyncio.run(main())
 - **await asyncio.sleep()** ne bloque pas le CPU.
 - Pendant ce temps, d’autres tâches peuvent tourner.
 
-## Exemple 2 — LED + lecture bouton en parallèle
+## Exemple 3 — LED + lecture bouton en parallèle
 
 ![img.png](img.png)![img_1.png](img_1.png)
 
@@ -93,7 +124,7 @@ asyncio.run(main())
 - Plusieurs tâches tournent réellement en parallèle (coopératif).
 - Le bouton est lu sans bloquer le clignotement.
 
-## Exemple 3 — Lire un capteur périodiquement (ex. température)
+## Exemple 4 — Lire un capteur périodiquement (ex. température)
 
 ![img_2.png](img_2.png)![img_3.png](img_3.png)
 
@@ -119,7 +150,7 @@ asyncio.run(main())
 - Une tâche peut tourner à intervalle régulier.
 - Le programme reste réactif.
 
-## Exemple 4 — Serveur Web + LED (cas réel IoT)
+## Exemple 5 — Serveur Web + LED (cas réel IoT)
 Cet exemple illustre un cas typique décrit dans les tutoriels MicroPython : gérer un serveur web tout en restant réactif aux entrées/sorties .
 
 ```
