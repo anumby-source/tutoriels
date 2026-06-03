@@ -1,9 +1,10 @@
 # Module 1 — Créer un serveur Web minimal avec MicroPython sur ESP32 (Thonny)
-Ce module apprend à créer un serveur Web simple sur ESP32, capable de répondre à un navigateur avec une page HTML et de gérer des routes comme /led?state=on.
+Ce module apprend à créer un serveur Web simple sur ESP32, capable de répondre à un navigateur avec une page HTML et de gérer des 
+routes comme ```/led?state=on```.
 Tout est fait depuis Thonny, sans outils externes.
 
 ## Objectifs du module
-À la fin de ce module, l’apprenant saura :
+À la fin de ce module, vous saurez :
 
 - connecter l’ESP32 au Wi‑Fi
 - créer un serveur Web minimal basé sur une socket
@@ -11,13 +12,15 @@ Tout est fait depuis Thonny, sans outils externes.
 - lire les requêtes HTTP entrantes
 
 ## Comprendre le principe d’un serveur Web sur ESP32
-Un serveur Web repose sur quelques idées simples :
+Un serveur Web repose sur deux idées simples :
 
 - un **réseau WLAN** au mode AP associé à un ``identifiant`` et un ``mot de passe``
 - une **socket TCP** qui écoute en général sur le port 80
 
-Par ailleurs, le serveur comporte aussi une section définissnt un **client**
-qui sera transmis vers un navigateur Web (HTTP) grâce à cette **socket**. 
+(*il existe plusieurs méthodes pour créer un réseau, mais nous n'aborderons ici que la méthode ```AP```*)
+
+Par ailleurs, le serveur est associé avec une section **client**
+qui sera transmise vers un navigateur Web (HTTP) grâce à cette **socket**. 
 
 Ce client présente une **IHM** représentée sur le navigateur, et permettant l'**interactivité**:
 - via l'interface clavier/souris avec l'**opérateur humain**
@@ -27,7 +30,7 @@ Dans le cas qui nous intéresse, le serveur reçoit et agit sur des éléments h
 (**capteurs, actionneurs**). 
 
 Nous verrons plus tard comment ces échanges se coordonnent en fonction des contraintes temporelles 
-(les capteurs, les données en provenance d'autres parties du système, puis les actions de l'opérateur humain)
+(*les capteurs, les données en provenance d'autres parties du système, puis les actions de l'opérateur humain*)
 
 La gestion fonctionnelle du serveur repose sur des **requêtes**
 - **émises** 
@@ -53,7 +56,7 @@ Les constituants principaux d'un serveur à installer dans cette classe sont:
     - les constituants de l'IHM (**body**)
     - les éléments fonctionnels (en java script) (**script**)
 -  les éléments fonctionnels du serveur:
-    - la  boucle d'action principale (**run**)
+    - la boucle d'action principale (**run**)
     - le gestionnaire de réception des requêtes (**handler**)
 
 Nous aurons besoin de librairies:
@@ -171,7 +174,7 @@ L'IHM est construit sur une base simple, sur laquelle nous ajoutons les élémen
 La gestion consiste à accepter les requêtes reçues par la socket, puis les analyser 
 sous forme de **routes** de la forme ``/<route>``
 
-Ici, dans la fonctionnalité installé par défaut dans la classe de base 
+Ici, dans la fonctionnalité installée par défaut dans la classe de base 
 fournit au moins la capacité de détecter la sensibilité d'un bouton **exit**
 
 (*Ce bouton a été positionné par défaut en bas de l'IHM.*)
@@ -179,7 +182,7 @@ fournit au moins la capacité de détecter la sensibilité d'un bouton **exit**
 On détecte aussi la **route** minimale "/" qui produit simplement un rafraichissement de l'IHM.
 
 Mais on a défini dans la classe de base la possiblilité de déclarer un gestionnaire de requête additionnel **http_handler**.
-Ce gestionnaire additionnel sera chargé d'effectuer le parsing des requêtes et d'ajouter 
+Ce gestionnaire additionnel sera chargé d'effectuer le parsing des autres requêtes et d'ajouter 
 des comportements utilisateurs.
 
 ```
