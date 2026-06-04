@@ -4,12 +4,16 @@ import socket
 import gc
 # import machine
 
-SSID = "ESP32-CAM"
-PASSWORD = "12345678"
 PORT = 80
 
 class Server:
-    def __init__(self, title="ESP32-S3", style="", script="", body=""):
+    def __init__(self,
+                 title="ESP32",
+                 ssid="ESP32",
+                 password="12345678",
+                 style="",
+                 script="",
+                 body=""):
         self.set_title(title)
         self.set_style(style)
         self.set_script(script)
@@ -20,7 +24,7 @@ class Server:
         # WiFi AP
         self.ap = network.WLAN(network.AP_IF)
         self.ap.active(True)
-        self.ap.config(essid=SSID, password=PASSWORD)
+        self.ap.config(essid=ssid, password=password)
 
         while not self.ap.active():
             time.sleep(0.2)
