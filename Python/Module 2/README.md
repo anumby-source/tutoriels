@@ -4,6 +4,10 @@
 - Manipuler ```uasyncio.sleep()``` pour éviter de bloquer le programme.
 - Appliquer l’asynchrone à des cas concrets : LED, bouton, capteur.
 
+Documentation générale micropython https://docs.micropython.org/en/latest/library/asyncio.html
+
+Documentation générale python https://docs.python.org/3/library/asyncio-task.html
+
 ## Pourquoi l’asynchrone sur ESP32 ?
 L’ESP32 doit souvent :
 - clignoter une LED,
@@ -16,7 +20,6 @@ En fonctionnement **synchrone**, chaque tâche attend la précédente →
 le microcontrôleur devient lent ou non réactif.
 En fonctionnement **asynchrone**, les tâches sont non bloquantes : 
 elles avancent chacune à leur rythme tout en partageant le CPU.
-C’est exactement ce que décrit la documentation MicroPython : 
 l’asynchrone permet d’exécuter plusieurs tâches sans bloquer le programme .
 
 ## Le module uasyncio
@@ -28,10 +31,18 @@ import uasyncio as asyncio
 
 Concepts clés :
 
-- **coroutine** : fonction déclarée avec async def
-- **await** : pause non bloquante
+- **coroutine** : fonction déclarée avec ```async def```
 - **task** : coroutine lancée en parallèle
+- **await** : pause non bloquante
 - **event loop** : moteur qui exécute les tâches
+
+
+- la tâche principale ```main``` est lancée par la fonction ```asyncio.run(main())``` et l'on attend que qu'elle se termine
+- les tâches sont lancées par une tâche **parente** par la fonction ```t = asyncio.create_task(f())``` sans attendre qu'elles se terminent
+- lorsque la tâche parente s'arrête, toutes les tâche *filles* s'arrêtent
+- on peut contrôler la durée d'une tâche par la fonction ```await asyncio.sleep(secondes)```
+- on peut attendre qu'une tâche déjà lancée se temine par la fonction ```await t```
+- on peut forcer l'arrêt d'une tâche déjà lancée par la fonction ```t.cancel()```
 
 ## Exemple 1 — Combiner pluseurs boucles de façon non bloquante
 
