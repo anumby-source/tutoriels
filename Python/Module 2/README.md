@@ -37,7 +37,7 @@ Concepts clés :
 - **event loop** : moteur qui exécute les tâches
 
 
-- la tâche principale ```main``` est lancée par la fonction ```asyncio.run(main())``` et l'on attend que qu'elle se termine
+- la tâche principale ```main``` est lancée par la fonction ```asyncio.run(main())``` et l'on attend qu'elle se termine
 - les tâches sont lancées par une tâche **parente** par la fonction ```t = asyncio.create_task(f())``` sans attendre qu'elles se terminent
 - lorsque la tâche parente s'arrête, toutes les tâche *filles* s'arrêtent
 - on peut contrôler la durée d'une tâche par la fonction ```await asyncio.sleep(secondes)```
