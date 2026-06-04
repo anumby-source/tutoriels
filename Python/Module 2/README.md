@@ -1,4 +1,4 @@
-# Module 2: Comprendre ce qu’est une boucle événementielle et une coroutine.
+# Module 2: Comprendre ce qu’est une boucle asynchrone et une coroutine.
 
 - Savoir créer et lancer plusieurs tâches concurrentes.
 - Manipuler ```uasyncio.sleep()``` pour éviter de bloquer le programme.
@@ -18,9 +18,11 @@ L’ESP32 doit souvent :
 
 En fonctionnement **synchrone**, chaque tâche attend la précédente → 
 le microcontrôleur devient lent ou non réactif.
+
 En fonctionnement **asynchrone**, les tâches sont non bloquantes : 
 elles avancent chacune à leur rythme tout en partageant le CPU.
-l’asynchrone permet d’exécuter plusieurs tâches sans bloquer le programme .
+
+Le fonctionnement asynchrone permet d’exécuter plusieurs tâches sans bloquer le programme .
 
 ## Le module uasyncio
 MicroPython fournit une version légère d’asyncio :
@@ -52,9 +54,9 @@ import uasyncio as asyncio
 async def blink():
     # Ici on affiche alternativement 0 ou 1 toutes les demi-secondes
     while True:
-        print("0")
+        print("0 lent")
         await asyncio.sleep(0.5)
-        print("1")
+        print("1 lent")
         await asyncio.sleep(0.5)
 
 async def main():
@@ -63,7 +65,7 @@ async def main():
 
     asyncio.create_task(blink())
     for i in range(10):
-        print("aaa")
+        print("rapide")
         await asyncio.sleep(0.1)
 
     await asyncio.sleep(5)   # laisse tourner 5s
@@ -92,7 +94,7 @@ async def main():
     # sans gêner le reste du programme
     asyncio.create_task(blink())
     for i in range(10):
-        print("aaa")
+        print("rapide")
         await asyncio.sleep(0.1)
     await asyncio.sleep(10)   # laisse tourner 10s
 
@@ -185,7 +187,7 @@ async def main():
 asyncio.run(main())
 ```
 
-## Exercices pour les élèves
+## Exercices possibles
 ### Niveau 1
 - Modifier la fréquence de clignotement.
 - Ajouter une deuxième LED avec une fréquence différente.
